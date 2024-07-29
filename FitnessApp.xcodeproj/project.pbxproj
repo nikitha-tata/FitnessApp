@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E52388092C5805390038E0D2 /* ActivityCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52388082C5805380038E0D2 /* ActivityCardView.swift */; };
 		E574EA802C4F0273008A6B83 /* FitnessAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E574EA7F2C4F0273008A6B83 /* FitnessAppApp.swift */; };
 		E574EA822C4F0273008A6B83 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E574EA812C4F0273008A6B83 /* ContentView.swift */; };
 		E574EA842C4F0275008A6B83 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E574EA832C4F0275008A6B83 /* Assets.xcassets */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E52388082C5805380038E0D2 /* ActivityCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCardView.swift; sourceTree = "<group>"; };
 		E574EA7C2C4F0273008A6B83 /* FitnessApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FitnessApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E574EA7F2C4F0273008A6B83 /* FitnessAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitnessAppApp.swift; sourceTree = "<group>"; };
 		E574EA812C4F0273008A6B83 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -38,6 +40,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E52388072C5804D00038E0D2 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				E5A25DED2C4F100B008D1BF1 /* HomeView.swift */,
+				E5A25DEF2C4F1E5B008D1BF1 /* ProgressCircleView.swift */,
+				E52388082C5805380038E0D2 /* ActivityCardView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
 		E574EA732C4F0273008A6B83 = {
 			isa = PBXGroup;
 			children = (
@@ -57,13 +69,12 @@
 		E574EA7E2C4F0273008A6B83 /* FitnessApp */ = {
 			isa = PBXGroup;
 			children = (
+				E52388072C5804D00038E0D2 /* Home */,
 				E574EA7F2C4F0273008A6B83 /* FitnessAppApp.swift */,
 				E574EA812C4F0273008A6B83 /* ContentView.swift */,
 				E574EA832C4F0275008A6B83 /* Assets.xcassets */,
 				E574EA852C4F0275008A6B83 /* Preview Content */,
 				E5A25DEB2C4F0DF8008D1BF1 /* FitnessTabView.swift */,
-				E5A25DED2C4F100B008D1BF1 /* HomeView.swift */,
-				E5A25DEF2C4F1E5B008D1BF1 /* ProgressCircleView.swift */,
 			);
 			path = FitnessApp;
 			sourceTree = "<group>";
@@ -149,6 +160,7 @@
 				E5A25DEC2C4F0DF8008D1BF1 /* FitnessTabView.swift in Sources */,
 				E5A25DEE2C4F100B008D1BF1 /* HomeView.swift in Sources */,
 				E574EA822C4F0273008A6B83 /* ContentView.swift in Sources */,
+				E52388092C5805390038E0D2 /* ActivityCardView.swift in Sources */,
 				E574EA802C4F0273008A6B83 /* FitnessAppApp.swift in Sources */,
 				E5A25DF02C4F1E5B008D1BF1 /* ProgressCircleView.swift in Sources */,
 			);
