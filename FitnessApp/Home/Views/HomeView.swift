@@ -7,60 +7,49 @@
 
 import SwiftUI
 
+
+
 struct HomeView: View {
-    @State var calories: Int = 100
-    @State var goal: Int = 30
-    @State var stand: Int = 50
+    // created as stateobject as we should know it is instance of some class
+    @StateObject var viewModel = HomeViewModel()
     
-    let mockActivities: [Activity] = [
-        Activity(id: 0, title: "Today Steps", subtitle: "Goal 12,000", image: "figure.walk", tintColor: .green, amount: "6,200"),
-        Activity(id: 1, title: "Today Steps", subtitle: "Goal 12,000", image: "figure.walk", tintColor: .red, amount: "812"),
-        Activity(id: 2, title: "Today Steps", subtitle: "Goal 12,000", image: "figure.walk", tintColor: .blue, amount: "9,900"),
-        Activity(id: 3, title: "Today Steps", subtitle: "Goal 12,000", image: "figure.walk", tintColor: .purple, amount: "55,000"),
-        ]
-    
-    let mockWorkouts: [WorkOut] = [WorkOut(id: 0, title: "Running", image: "figure.run", duration: "30 mins", date: "29 July", calories: "500 kcal", tintColor: .green),
-                                   WorkOut(id: 1, title: "Swimming", image: "figure.run", duration: "30 mins", date: "29 July", calories: "500 kcal", tintColor: .red),
-                                   WorkOut(id: 2, title: "Strength Training", image: "figure.run", duration: "30 mins", date: "29 July", calories: "500 kcal", tintColor: .blue),
-                                   WorkOut(id: 3, title: "Walking", image: "figure.run", duration: "30 mins", date: "29 July", calories: "500 kcal", tintColor: .purple),
-                                   WorkOut(id: 4, title: "Exercise", image: "figure.run", duration: "30 mins", date: "29 July", calories: "500 kcal", tintColor: .pink),
-                                   WorkOut(id: 5, title: "Yoga", image: "figure.run", duration: "30 mins", date: "29 July", calories: "500 kcal", tintColor: .yellow)]
     var body: some View {
         NavigationStack {
             ScrollView(showsIndicators: false) {
-                VStack(alignment: .leading) {
+               // VStack(alignment: .leading) {
                     Text("Welcome")
                         .font(.largeTitle)
                         .fontWeight(.semibold)
                         .padding(EdgeInsets(top: 16, leading: 8, bottom: 8, trailing: 8))
-                }
+               // }
                 HStack {
                     
-                   // Spacer()
+                    // Spacer()
                     VStack {
-                        VStack {
+                        
+                        VStack(alignment: .leading) {
                             Text("Calories")
                                 .font(.title2)
                                 .foregroundStyle(.teal)
-                            Text("123 kcal")
+                            Text("\(viewModel.calories) kcal")
                                 .font(.title3)
                                 .fontWeight(.semibold)
                         }
                         .padding()
-                        VStack {
+                        VStack(alignment: .leading) {
                             Text("Active")
                                 .font(.title2)
                                 .foregroundStyle(.pink)
-                            Text("15 min")
+                            Text("\(viewModel.active) mins")
                                 .font(.title3)
                                 .fontWeight(.semibold)
                         }
-                       // .padding()
-                        VStack {
+                        // .padding()
+                        VStack(alignment: .leading) {
                             Text("Stand")
                                 .font(.title2)
                                 .foregroundStyle(.orange)
-                            Text("10 min")
+                            Text("\(viewModel.stand) hours")
                                 .font(.title3)
                                 .fontWeight(.semibold)
                         }
@@ -70,12 +59,12 @@ struct HomeView: View {
                     
                     ZStack {
                         
-                    ProgressCircleView(progress: $calories, goal: 600, color: .teal)
-                    ProgressCircleView(progress: $goal, goal: 60, color: .pink)
+                        ProgressCircleView(progress: $viewModel.calories, goal: 600, color: .teal)
+                        ProgressCircleView(progress: $viewModel.goal, goal: 60, color: .pink)
                             .padding(.all, 20)
-                    ProgressCircleView(progress: $stand, goal: 80, color: .orange)
+                        ProgressCircleView(progress: $viewModel.stand, goal: 80, color: .orange)
                             .padding(.all, 40)
-                            
+                        
                     }
                     .padding(.horizontal)
                     Spacer()
@@ -101,7 +90,7 @@ struct HomeView: View {
                 .padding(.horizontal)
                 
                 LazyVGrid(columns: Array(repeating: GridItem(spacing: 8), count: 2)) {
-                    ForEach(mockActivities, id: \.id) { activity in
+                    ForEach(viewModel.mockActivities, id: \.id) { activity in
                         ActivityCardView(activity: activity)
                     }
                 }
@@ -124,12 +113,12 @@ struct HomeView: View {
                             .background(.blue)
                             .cornerRadius(8.0)
                     }
-
+                    
                 }
                 .padding()
                 
                 LazyVStack {
-                    ForEach(mockWorkouts, id: \.id) { workout in
+                    ForEach(viewModel.mockWorkouts, id: \.id) { workout in
                         WorkoutCardView(workout: workout)
                     }
                 }

@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		E52388092C5805390038E0D2 /* ActivityCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52388082C5805380038E0D2 /* ActivityCardView.swift */; };
 		E523880B2C5811730038E0D2 /* WorkoutCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E523880A2C5811730038E0D2 /* WorkoutCardView.swift */; };
+		E52388102C5946680038E0D2 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E523880F2C5946680038E0D2 /* HomeViewModel.swift */; };
+		E52388122C5946CB0038E0D2 /* ActivityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52388112C5946CB0038E0D2 /* ActivityModel.swift */; };
+		E52388142C5947430038E0D2 /* WorkoutModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52388132C5947430038E0D2 /* WorkoutModel.swift */; };
 		E574EA802C4F0273008A6B83 /* FitnessAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E574EA7F2C4F0273008A6B83 /* FitnessAppApp.swift */; };
 		E574EA822C4F0273008A6B83 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E574EA812C4F0273008A6B83 /* ContentView.swift */; };
 		E574EA842C4F0275008A6B83 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E574EA832C4F0275008A6B83 /* Assets.xcassets */; };
@@ -21,6 +24,9 @@
 /* Begin PBXFileReference section */
 		E52388082C5805380038E0D2 /* ActivityCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCardView.swift; sourceTree = "<group>"; };
 		E523880A2C5811730038E0D2 /* WorkoutCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutCardView.swift; sourceTree = "<group>"; };
+		E523880F2C5946680038E0D2 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		E52388112C5946CB0038E0D2 /* ActivityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityModel.swift; sourceTree = "<group>"; };
+		E52388132C5947430038E0D2 /* WorkoutModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutModel.swift; sourceTree = "<group>"; };
 		E574EA7C2C4F0273008A6B83 /* FitnessApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FitnessApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E574EA7F2C4F0273008A6B83 /* FitnessAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitnessAppApp.swift; sourceTree = "<group>"; };
 		E574EA812C4F0273008A6B83 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -45,12 +51,39 @@
 		E52388072C5804D00038E0D2 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				E523880E2C59464A0038E0D2 /* Views */,
+				E523880D2C5946410038E0D2 /* ViewModels */,
+				E523880C2C5946350038E0D2 /* Models */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		E523880C2C5946350038E0D2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E52388112C5946CB0038E0D2 /* ActivityModel.swift */,
+				E52388132C5947430038E0D2 /* WorkoutModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E523880D2C5946410038E0D2 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				E523880F2C5946680038E0D2 /* HomeViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		E523880E2C59464A0038E0D2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
 				E5A25DED2C4F100B008D1BF1 /* HomeView.swift */,
 				E5A25DEF2C4F1E5B008D1BF1 /* ProgressCircleView.swift */,
 				E52388082C5805380038E0D2 /* ActivityCardView.swift */,
 				E523880A2C5811730038E0D2 /* WorkoutCardView.swift */,
 			);
-			path = Home;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		E574EA732C4F0273008A6B83 = {
@@ -161,8 +194,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				E523880B2C5811730038E0D2 /* WorkoutCardView.swift in Sources */,
+				E52388142C5947430038E0D2 /* WorkoutModel.swift in Sources */,
 				E5A25DEC2C4F0DF8008D1BF1 /* FitnessTabView.swift in Sources */,
+				E52388122C5946CB0038E0D2 /* ActivityModel.swift in Sources */,
 				E5A25DEE2C4F100B008D1BF1 /* HomeView.swift in Sources */,
+				E52388102C5946680038E0D2 /* HomeViewModel.swift in Sources */,
 				E574EA822C4F0273008A6B83 /* ContentView.swift in Sources */,
 				E52388092C5805390038E0D2 /* ActivityCardView.swift in Sources */,
 				E574EA802C4F0273008A6B83 /* FitnessAppApp.swift in Sources */,

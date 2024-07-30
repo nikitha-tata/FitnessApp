@@ -7,23 +7,16 @@
 
 import SwiftUI
 
-struct WorkOut {
-    let id: Int
-    let title: String
-    let image: String
-    let duration: String
-    let date: String
-    let calories: String
-    let tintColor: Color
-}
-
 struct WorkoutCardView: View {
+    
     @State var workout: WorkOut
     var body: some View {
         HStack {
             Image(systemName: workout.image)
-                .frame(width: 60, height: 60)
-                .scaledToFill()
+                .resizable()
+                .scaledToFit()
+                .frame(width: 48, height: 48)
+                .padding()
                 .background(.gray.opacity(0.1))
                 .foregroundColor(workout.tintColor)
                 .cornerRadius(8.0)
