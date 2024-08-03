@@ -6,15 +6,17 @@
 //
 
 import Foundation
-import SwiftUI
+
 
 // We should confirm to observableobject as it should observe the changes from view
 class HomeViewModel: ObservableObject {
     
-    @State var calories: Int = 100
-    @State var goal: Int = 30
-    @State var stand: Int = 50
-    @State var active: Int = 54
+    @Published var calories: Int = 100
+    @Published var exercise: Int = 30
+    @Published var stand: Int = 50
+    
+    
+    let healthManager = HealthManager.shared
     
     //Will add @Published if this variable changes continuosly
     let mockActivities: [Activity] = [
@@ -30,4 +32,59 @@ class HomeViewModel: ObservableObject {
                                    WorkOut(id: 3, title: "Walking", image: "figure.run", duration: "30 mins", date: "29 July", calories: "500 kcal", tintColor: .purple),
                                    WorkOut(id: 4, title: "Exercise", image: "figure.run", duration: "30 mins", date: "29 July", calories: "500 kcal", tintColor: .pink),
                                    WorkOut(id: 5, title: "Yoga", image: "figure.run", duration: "30 mins", date: "29 July", calories: "500 kcal", tintColor: .yellow)]
+    
+    init() {
+        Task {
+            do {
+                try await healthManager.requestHealthKitAccess()
+                self.fetchTodayCalories()
+            }
+            catch {
+                print(error.localizedDescription)
+            }
+        }
+        
+    }
+    
+    func fetchTodayCalories() {
+        healthManager.fetchTodayCaloriesBurned { result in
+            self.fetchTodayExerciseTime()
+            switch result {
+            case .success(let response):
+                DispatchQueue.main.async {
+                    self.calories = Int(response)
+                }
+            case .failure(let error):
+                print(error.statusMessage)
+            }
+        }
+    }
+    
+    func fetchTodayExerciseTime() {
+        healthManager.fetchTodayExerciseTime { result in
+            self.fetchTodayStandHours()
+            switch result {
+            case .success(let response):
+                DispatchQueue.main.async {
+                    self.exercise = Int(response)
+                }
+            case .failure(let error):
+                print(error.statusMessage)
+            }
+            
+        }
+    }
+    
+    func fetchTodayStandHours() {
+        healthManager.fetchTodayStandHours { result in
+            switch result {
+            case .success(let response):
+                DispatchQueue.main.async {
+                    self.stand = Int(response)
+                }
+            case .failure(let error):
+                print(error.statusMessage)
+            }
+        }
+    }
 }

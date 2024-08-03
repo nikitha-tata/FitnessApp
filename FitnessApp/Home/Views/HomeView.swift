@@ -12,7 +12,7 @@ import SwiftUI
 struct HomeView: View {
     // created as stateobject as we should know it is instance of some class
     @StateObject var viewModel = HomeViewModel()
-    
+   
     var body: some View {
         NavigationStack {
             ScrollView(showsIndicators: false) {
@@ -40,7 +40,7 @@ struct HomeView: View {
                             Text("Active")
                                 .font(.title2)
                                 .foregroundStyle(.pink)
-                            Text("\(viewModel.active) mins")
+                            Text("\(viewModel.exercise) mins")
                                 .font(.title3)
                                 .fontWeight(.semibold)
                         }
@@ -60,7 +60,7 @@ struct HomeView: View {
                     ZStack {
                         
                         ProgressCircleView(progress: $viewModel.calories, goal: 600, color: .teal)
-                        ProgressCircleView(progress: $viewModel.goal, goal: 60, color: .pink)
+                        ProgressCircleView(progress: $viewModel.exercise, goal: 60, color: .pink)
                             .padding(.all, 20)
                         ProgressCircleView(progress: $viewModel.stand, goal: 80, color: .orange)
                             .padding(.all, 40)
