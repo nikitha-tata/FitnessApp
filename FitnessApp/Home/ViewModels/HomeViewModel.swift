@@ -15,6 +15,7 @@ class HomeViewModel: ObservableObject {
     @Published var exercise: Int = 0
     @Published var stand: Int = 0
     @Published var activities = [Activity]()
+    @Published var workouts = [WorkOut]()
     
     let healthManager = HealthManager.shared
     
@@ -42,6 +43,7 @@ class HomeViewModel: ObservableObject {
                 self.fetchTodayStandHours()
                 self.fetchTodaysSteps()
                 self.fetchAllWorkouts()
+                self.fetchRecentWorkouts()
             }
             catch {
                 print(error.localizedDescription)
@@ -116,6 +118,21 @@ class HomeViewModel: ObservableObject {
             case .success(let response):
                 DispatchQueue.main.async {
                     self?.activities.append(contentsOf: response)
+                }
+            case .failure(let error):
+                break
+            }
+        }
+    }
+    
+    //MARK: Workout Activity
+    
+    func fetchRecentWorkouts() {
+        healthManager.fetchWorkoutsForMonth(month: Date()) { [weak self] result in
+            switch result {
+            case .success(let response):
+                DispatchQueue.main.async {
+                    self?.workouts = Array(response.prefix(4))
                 }
             case .failure(let error):
                 break

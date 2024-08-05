@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 struct WorkOut {
-    let id: Int
+    let id: Int?
     let title: String
     let image: String
     let duration: String
