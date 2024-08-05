@@ -90,7 +90,7 @@ struct HomeView: View {
                 .padding(.horizontal)
                 
                 LazyVGrid(columns: Array(repeating: GridItem(spacing: 8), count: 2)) {
-                    ForEach(viewModel.mockActivities, id: \.id) { activity in
+                    ForEach(viewModel.activities, id: \.title) { activity in
                         ActivityCardView(activity: activity)
                     }
                 }

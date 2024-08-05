@@ -27,7 +27,7 @@ struct WorkoutCardView: View {
                 HStack {
                     Text(workout.title)
                         .font(.title3)
-                        .fontWeight(.bold)
+                        .fontWeight(.medium)
                     Spacer()
                     Text(workout.duration)
                        
