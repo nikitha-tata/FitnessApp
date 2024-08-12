@@ -8,55 +8,6 @@
 import SwiftUI
 import Charts
 
-struct DailyStepModel: Identifiable {
-    let id = UUID()
-    let date: Date
-    let count: Int
-}
-
-enum ChartOptions: String, CaseIterable {
-    case oneWeek = "1W"
-    case oneMonth = "1M"
-    case threeMonth = "3M"
-    case yearToDate = "YTD"
-    case oneYear = "1Y"
-}
-
-class ChartsViewModel: ObservableObject {
-    var mockChartData: [DailyStepModel] = [
-        DailyStepModel(date: Date(), count: 12456),
-        DailyStepModel(date: Calendar.current.date(byAdding: .day, value: -1, to: Date()) ?? Date(), count: 9678),
-        DailyStepModel(date: Calendar.current.date(byAdding: .day, value: -2, to: Date()) ?? Date(), count: 9792),
-        DailyStepModel(date: Calendar.current.date(byAdding: .day, value: -3, to: Date()) ?? Date(), count: 7892),
-        DailyStepModel(date: Calendar.current.date(byAdding: .day, value: -4, to: Date()) ?? Date(), count: 10907),
-        DailyStepModel(date: Calendar.current.date(byAdding: .day, value: -5, to: Date()) ?? Date(), count: 6890),
-        DailyStepModel(date: Calendar.current.date(byAdding: .day, value: -6, to: Date()) ?? Date(), count: 9678)
-    ]
-    
-    @Published var mockDataForOneMonth: [DailyStepModel] = []
-    @Published var mockDataForThreeMonth: [DailyStepModel] = []
-    
-    
-    init() {
-        var mockData: [DailyStepModel] = generateDataForDays(days: 30)
-        var mockThreeData: [DailyStepModel] = generateDataForDays(days: 90)
-        DispatchQueue.main.async {
-            self.mockDataForOneMonth = mockData
-            self.mockDataForThreeMonth = mockThreeData
-        }
-        
-    }
-    private func generateDataForDays(days: Int) -> [DailyStepModel] {
-        var data: [DailyStepModel] = []
-        for i in 0..<days {
-            let date = Calendar.current.date(byAdding: .day, value: -i, to: Date()) ?? Date()
-            let count = Int.random(in: 6000...13000)
-            data.append(DailyStepModel(date: date, count: count))
-        }
-        return data
-    }
-}
-
 struct ChartsView: View {
     @StateObject var viewModel = ChartsViewModel()
     @State var selectedChart: ChartOptions = .oneWeek
@@ -70,40 +21,66 @@ struct ChartsView: View {
             ZStack {
                 switch(selectedChart) {
                 case .oneWeek:
-                    Chart {
-                        ForEach(viewModel.mockChartData) { data in
-                            BarMark(x: .value(data.date.formatted(), data.date, unit: .day), y: .value("Steps Count", data.count))
+                    VStack {
+                        ChartDataView(average: viewModel.averageWeekSteps, total: viewModel.totalWeekSteps)
+                        Chart {
+                            ForEach(viewModel.mockWeekChartData) { data in
+                                BarMark(x: .value(data.date.formatted(), data.date, unit: .day), y: .value("Steps Count", data.count))
+                                
+                            }
                             
                         }
-                        
                     }
-                    
                 case .oneMonth:
-                    Chart {
-                        ForEach(viewModel.mockDataForOneMonth) { data in
-                            BarMark(x: .value(data.date.formatted(), data.date, unit: .day), y: .value("Steps Count", data.count))
+                    VStack {
+                        ChartDataView(average: viewModel.averageMonthSteps, total: viewModel.totalMonthSteps)
+                        Chart {
+                            ForEach(viewModel.mockDataForOneMonth) { data in
+                                BarMark(x: .value(data.date.formatted(), data.date, unit: .day), y: .value("Steps Count", data.count))
+                                
+                            }
                             
                         }
-                        
                     }
                     
                 case .threeMonth:
-                    Chart {
-                        ForEach(viewModel.mockDataForThreeMonth) { data in
-                            BarMark(x: .value(data.date.formatted(), data.date, unit: .day), y: .value("Steps Count", data.count))
+                    VStack {
+                        ChartDataView(average: viewModel.averageThreeMonthSteps, total: viewModel.totalThreeMonthSteps)
+                        Chart {
+                            ForEach(viewModel.mockDataForThreeMonth) { data in
+                                LineMark(x: .value(data.date.formatted(), data.date, unit: .day), y: .value("Steps Count", data.count))
+                                
+                            }
                             
                         }
-                        
                     }
                     
                 case .yearToDate:
-                    EmptyView()
+                    VStack {
+                        ChartDataView(average: viewModel.averageYTDSteps, total: viewModel.totalYTDSteps)
+                        Chart {
+                            ForEach(viewModel.mockYTDChartData) { data in
+                                BarMark(x: .value(data.date.formatted(), data.date, unit: .month), y: .value("Steps Count", data.count))
+                                
+                            }
+                            
+                        }
+                    }
                 case.oneYear:
-                    EmptyView()
+                    VStack {
+                        ChartDataView(average: viewModel.averageYearSteps, total: viewModel.totalYearSteps)
+                        Chart {
+                            ForEach(viewModel.mockYTDChartData) { data in
+                                BarMark(x: .value(data.date.formatted(), data.date, unit: .month), y: .value("Steps Count", data.count))
+                                
+                            }
+                            
+                        }
+                    }
                     
                 }
             }
-            .frame(maxHeight: 350)
+            .frame(maxHeight: 450)
             .padding(.horizontal)
             .foregroundColor(.teal)
             
@@ -113,7 +90,7 @@ struct ChartsView: View {
                         withAnimation {
                             selectedChart = option
                         }
-                       
+                        
                     }
                     .padding()
                     .foregroundColor(option == selectedChart ? .white : .teal)
@@ -121,13 +98,13 @@ struct ChartsView: View {
                     .cornerRadius(8)
                 }
             }
-                
+            
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
     }
 }
 
-    
+
 #Preview {
     ChartsView()
 }
