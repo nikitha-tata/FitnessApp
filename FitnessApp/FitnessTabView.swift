@@ -25,11 +25,11 @@ struct FitnessTabView: View {
                     Image(systemName: "house")
                     Text("Home")
                 }
-            HomeView()
-                .tag("Settings")
+            ChartsView()
+                .tag("Charts")
                 .tabItem {
-                    Image(systemName: "gear")
-                    Text("Settings")
+                    Image(systemName: "chart.xyaxis.line")
+                    Text("Charts")
                 }
         })
         

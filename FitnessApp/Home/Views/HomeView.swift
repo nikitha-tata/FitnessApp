@@ -20,7 +20,8 @@ struct HomeView: View {
                     Text("Welcome")
                         .font(.largeTitle)
                         .fontWeight(.semibold)
-                        .padding(EdgeInsets(top: 16, leading: 8, bottom: 8, trailing: 8))
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(EdgeInsets(top: 16, leading: 16, bottom: 8, trailing: 16))
                // }
                 HStack {
                     

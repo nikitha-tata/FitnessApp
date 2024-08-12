@@ -13,6 +13,7 @@
 		E52388122C5946CB0038E0D2 /* ActivityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52388112C5946CB0038E0D2 /* ActivityModel.swift */; };
 		E52388142C5947430038E0D2 /* WorkoutModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52388132C5947430038E0D2 /* WorkoutModel.swift */; };
 		E52388182C5951810038E0D2 /* HealthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52388172C5951810038E0D2 /* HealthManager.swift */; };
+		E55A03EF2C6A725E00B3D9D9 /* ChartsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55A03EE2C6A725E00B3D9D9 /* ChartsView.swift */; };
 		E574EA802C4F0273008A6B83 /* FitnessAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E574EA7F2C4F0273008A6B83 /* FitnessAppApp.swift */; };
 		E574EA822C4F0273008A6B83 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E574EA812C4F0273008A6B83 /* ContentView.swift */; };
 		E574EA842C4F0275008A6B83 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E574EA832C4F0275008A6B83 /* Assets.xcassets */; };
@@ -31,6 +32,7 @@
 		E52388132C5947430038E0D2 /* WorkoutModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutModel.swift; sourceTree = "<group>"; };
 		E52388152C594F830038E0D2 /* FitnessApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FitnessApp.entitlements; sourceTree = "<group>"; };
 		E52388172C5951810038E0D2 /* HealthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthManager.swift; sourceTree = "<group>"; };
+		E55A03EE2C6A725E00B3D9D9 /* ChartsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsView.swift; sourceTree = "<group>"; };
 		E574EA7C2C4F0273008A6B83 /* FitnessApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FitnessApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E574EA7F2C4F0273008A6B83 /* FitnessAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitnessAppApp.swift; sourceTree = "<group>"; };
 		E574EA812C4F0273008A6B83 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -99,6 +101,38 @@
 			path = Managers;
 			sourceTree = "<group>";
 		};
+		E55A03ED2C6A724700B3D9D9 /* Charts */ = {
+			isa = PBXGroup;
+			children = (
+				E55A03F22C6A733700B3D9D9 /* ViewModel */,
+				E55A03F12C6A731000B3D9D9 /* Model */,
+				E55A03F02C6A730700B3D9D9 /* Views */,
+			);
+			path = Charts;
+			sourceTree = "<group>";
+		};
+		E55A03F02C6A730700B3D9D9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E55A03EE2C6A725E00B3D9D9 /* ChartsView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E55A03F12C6A731000B3D9D9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E55A03F22C6A733700B3D9D9 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		E574EA732C4F0273008A6B83 = {
 			isa = PBXGroup;
 			children = (
@@ -118,6 +152,7 @@
 		E574EA7E2C4F0273008A6B83 /* FitnessApp */ = {
 			isa = PBXGroup;
 			children = (
+				E55A03ED2C6A724700B3D9D9 /* Charts */,
 				E5B9EB2B2C613D5600A6D1E1 /* Utils */,
 				E52388162C59516E0038E0D2 /* Managers */,
 				E52388152C594F830038E0D2 /* FitnessApp.entitlements */,
@@ -225,6 +260,7 @@
 				E5A25DEE2C4F100B008D1BF1 /* HomeView.swift in Sources */,
 				E52388102C5946680038E0D2 /* HomeViewModel.swift in Sources */,
 				E5B9EB2D2C613D7B00A6D1E1 /* HkWorkoutTypeActivity+Ext.swift in Sources */,
+				E55A03EF2C6A725E00B3D9D9 /* ChartsView.swift in Sources */,
 				E574EA822C4F0273008A6B83 /* ContentView.swift in Sources */,
 				E52388092C5805390038E0D2 /* ActivityCardView.swift in Sources */,
 				E574EA802C4F0273008A6B83 /* FitnessAppApp.swift in Sources */,
