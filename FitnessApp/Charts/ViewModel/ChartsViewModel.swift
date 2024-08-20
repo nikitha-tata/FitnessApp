@@ -8,6 +8,7 @@
 import Foundation
 
 class ChartsViewModel: ObservableObject {
+    let healthManager = HealthManager.shared
     var mockWeekChartData: [DailyStepModel] = [
         DailyStepModel(date: Date(), count: 12456),
         DailyStepModel(date: Calendar.current.date(byAdding: .day, value: -1, to: Date()) ?? Date(), count: 9678),
@@ -30,6 +31,8 @@ class ChartsViewModel: ObservableObject {
         MonthlyStepModel(date: Calendar.current.date(byAdding: .month, value: -5, to: Date()) ?? Date(), count: 70345),
         MonthlyStepModel(date: Calendar.current.date(byAdding: .month, value: -6, to: Date()) ?? Date(), count: 80912)
     ]
+    
+    @Published var ytdChartData: [MonthlyStepModel] = []
     @Published var averageYTDSteps: Int = 689068
     @Published var totalYTDSteps: Int = 689789739
     
@@ -41,18 +44,21 @@ class ChartsViewModel: ObservableObject {
     @Published var averageThreeMonthSteps: Int = 608744
     @Published var totalThreeMonthSteps: Int = 38878979
     
+    @Published var oneYearChartData: [MonthlyStepModel] = []
     @Published var averageYearSteps: Int = 689068
     @Published var totalYearSteps: Int = 689789739
     
     init() {
+        
         let mockData: [DailyStepModel] = generateDataForDays(days: 30)
         let mockThreeData: [DailyStepModel] = generateDataForDays(days: 90)
         DispatchQueue.main.async {
             self.mockDataForOneMonth = mockData
             self.mockDataForThreeMonth = mockThreeData
         }
-        
+        self.fetchYTDAndOneYearChartData()
     }
+    
     private func generateDataForDays(days: Int) -> [DailyStepModel] {
         var data: [DailyStepModel] = []
         for i in 0..<days {
@@ -61,5 +67,32 @@ class ChartsViewModel: ObservableObject {
             data.append(DailyStepModel(date: date, count: count))
         }
         return data
+    }
+}
+
+//MARK: Fetch Charts Data from HealthKit
+
+extension ChartsViewModel {
+    
+    func fetchYTDAndOneYearChartData() {
+        healthManager.fetchYTDAndOneYearData { result in
+            switch(result) {
+                
+            case .success(let result):
+                DispatchQueue.main.async {
+                    self.ytdChartData = result.ytd
+                    self.oneYearChartData = result.oneYear
+                    
+                    self.totalYTDSteps = result.ytd.reduce(0, {$0 + $1.count})
+                    self.totalYearSteps = result.oneYear.reduce(0, {$0 + $1.count})
+                    
+                    self.averageYTDSteps = self.totalYTDSteps / Calendar.current.component(.month, from: Date())
+                    self.averageYearSteps = self.totalYearSteps / 12
+                    
+                }
+            case .failure(_):
+                break
+            }
+        }
     }
 }

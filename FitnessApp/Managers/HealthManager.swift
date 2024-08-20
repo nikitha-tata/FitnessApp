@@ -196,3 +196,50 @@ class HealthManager {
         healthscore.execute(query)
     }
 }
+
+
+//MARK: ChartView Data
+
+extension HealthManager {
+    
+    struct YearChartDataResult {
+        let ytd: [MonthlyStepModel]
+        let oneYear: [MonthlyStepModel]
+    }
+    
+    func fetchYTDAndOneYearData(completion: @escaping(Result<YearChartDataResult, HKError>) -> Void) {
+        let steps = HKQuantityType(.stepCount)
+        let calendar = Calendar.current
+        
+        var oneYearMonths = [MonthlyStepModel]()
+        var ytdMonths = [MonthlyStepModel]()
+        
+        for i in 0...11 {
+            let month = calendar.date(byAdding: .month, value: -i, to: Date()) ?? Date()
+            let (startOfMonth, endOfMonth) = month.fetchMonthStartandEndDate()
+            let predicate = HKQuery.predicateForSamples(withStart: startOfMonth, end: endOfMonth)
+            let query = HKStatisticsQuery(quantityType: steps, quantitySamplePredicate: predicate) { _, results, error in
+                guard let steps = results?.sumQuantity()?.doubleValue(for: .count()), error == nil else {
+                    completion(.failure(HKError(statusMessage: "Steps Data is not Available")))
+                    return
+                }
+                
+                if i == 0 {
+                    oneYearMonths.append(MonthlyStepModel(date: month, count: Int(steps)))
+                    ytdMonths.append(MonthlyStepModel(date: month, count: Int(steps)))
+                } else {
+                    oneYearMonths.append(MonthlyStepModel(date: month, count: Int(steps)))
+                    if calendar.component(.year, from: Date()) == calendar.component(.year, from: month) {
+                        ytdMonths.append(MonthlyStepModel(date: month, count: Int(steps)))
+                    }
+                }
+                if i == 11 {
+                    
+                    completion(.success(YearChartDataResult(ytd: ytdMonths, oneYear: oneYearMonths)))
+                }
+            }
+            healthscore.execute(query)
+            
+        }
+    }
+}
