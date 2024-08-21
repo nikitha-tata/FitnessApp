@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct FitnessTabView: View {
+    @AppStorage("username") var username: String?
     @State var selectedTab = "Home"
+    @State var showTerms: Bool = true
     
     init() {
         let appearance = UITabBarAppearance()
@@ -31,7 +33,16 @@ struct FitnessTabView: View {
                     Image(systemName: "chart.xyaxis.line")
                     Text("Charts")
                 }
+            LeaderBoardView(showTerms: $showTerms)
+                .tag("LeaderBoard")
+                .tabItem {
+                    Image(systemName: "list.bullet")
+                    Text("LeaderBoard")
+                }
         })
+        .onAppear {
+            showTerms = username == nil
+        }
         
     }
 }

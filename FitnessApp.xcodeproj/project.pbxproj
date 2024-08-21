@@ -23,9 +23,11 @@
 		E574EA822C4F0273008A6B83 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E574EA812C4F0273008A6B83 /* ContentView.swift */; };
 		E574EA842C4F0275008A6B83 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E574EA832C4F0275008A6B83 /* Assets.xcassets */; };
 		E574EA872C4F0275008A6B83 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E574EA862C4F0275008A6B83 /* Preview Assets.xcassets */; };
+		E591007C2C752B7C00767AB6 /* LeaderBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E591007B2C752B7C00767AB6 /* LeaderBoardView.swift */; };
 		E5A25DEC2C4F0DF8008D1BF1 /* FitnessTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A25DEB2C4F0DF8008D1BF1 /* FitnessTabView.swift */; };
 		E5A25DEE2C4F100B008D1BF1 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A25DED2C4F100B008D1BF1 /* HomeView.swift */; };
 		E5A25DF02C4F1E5B008D1BF1 /* ProgressCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A25DEF2C4F1E5B008D1BF1 /* ProgressCircleView.swift */; };
+		E5B56EFF2C765C920057D807 /* TermsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B56EFE2C765C920057D807 /* TermsView.swift */; };
 		E5B9EB2D2C613D7B00A6D1E1 /* HkWorkoutTypeActivity+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B9EB2C2C613D7B00A6D1E1 /* HkWorkoutTypeActivity+Ext.swift */; };
 /* End PBXBuildFile section */
 
@@ -48,9 +50,11 @@
 		E574EA812C4F0273008A6B83 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		E574EA832C4F0275008A6B83 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E574EA862C4F0275008A6B83 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		E591007B2C752B7C00767AB6 /* LeaderBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderBoardView.swift; sourceTree = "<group>"; };
 		E5A25DEB2C4F0DF8008D1BF1 /* FitnessTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitnessTabView.swift; sourceTree = "<group>"; };
 		E5A25DED2C4F100B008D1BF1 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		E5A25DEF2C4F1E5B008D1BF1 /* ProgressCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressCircleView.swift; sourceTree = "<group>"; };
+		E5B56EFE2C765C920057D807 /* TermsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsView.swift; sourceTree = "<group>"; };
 		E5B9EB2C2C613D7B00A6D1E1 /* HkWorkoutTypeActivity+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HkWorkoutTypeActivity+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -167,6 +171,7 @@
 		E574EA7E2C4F0273008A6B83 /* FitnessApp */ = {
 			isa = PBXGroup;
 			children = (
+				E591007A2C752B6500767AB6 /* LeaderBoard */,
 				E55A03ED2C6A724700B3D9D9 /* Charts */,
 				E5B9EB2B2C613D5600A6D1E1 /* Utils */,
 				E52388162C59516E0038E0D2 /* Managers */,
@@ -187,6 +192,15 @@
 				E574EA862C4F0275008A6B83 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		E591007A2C752B6500767AB6 /* LeaderBoard */ = {
+			isa = PBXGroup;
+			children = (
+				E591007B2C752B7C00767AB6 /* LeaderBoardView.swift */,
+				E5B56EFE2C765C920057D807 /* TermsView.swift */,
+			);
+			path = LeaderBoard;
 			sourceTree = "<group>";
 		};
 		E5B9EB2B2C613D5600A6D1E1 /* Utils */ = {
@@ -279,6 +293,8 @@
 				E55A03EF2C6A725E00B3D9D9 /* ChartsView.swift in Sources */,
 				E574EA822C4F0273008A6B83 /* ContentView.swift in Sources */,
 				E52388092C5805390038E0D2 /* ActivityCardView.swift in Sources */,
+				E5B56EFF2C765C920057D807 /* TermsView.swift in Sources */,
+				E591007C2C752B7C00767AB6 /* LeaderBoardView.swift in Sources */,
 				E574EA802C4F0273008A6B83 /* FitnessAppApp.swift in Sources */,
 				E55A03FC2C6A903000B3D9D9 /* ChartOptions.swift in Sources */,
 				E5A25DF02C4F1E5B008D1BF1 /* ProgressCircleView.swift in Sources */,
