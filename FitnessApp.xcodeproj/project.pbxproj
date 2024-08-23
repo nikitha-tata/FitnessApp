@@ -23,6 +23,8 @@
 		E5698B912C77B54F00C6E710 /* LeaderBoardUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5698B902C77B54F00C6E710 /* LeaderBoardUser.swift */; };
 		E5698B932C77B95D00C6E710 /* Double+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5698B922C77B95D00C6E710 /* Double+Ext.swift */; };
 		E5698B952C77B97900C6E710 /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5698B942C77B97900C6E710 /* Date+Ext.swift */; };
+		E5698B9C2C78F22B00C6E710 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5698B9B2C78F22B00C6E710 /* ProfileView.swift */; };
+		E5698B9E2C78F73F00C6E710 /* ProfileCustomButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5698B9D2C78F73F00C6E710 /* ProfileCustomButtonView.swift */; };
 		E574EA802C4F0273008A6B83 /* FitnessAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E574EA7F2C4F0273008A6B83 /* FitnessAppApp.swift */; };
 		E574EA822C4F0273008A6B83 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E574EA812C4F0273008A6B83 /* ContentView.swift */; };
 		E574EA842C4F0275008A6B83 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E574EA832C4F0275008A6B83 /* Assets.xcassets */; };
@@ -53,6 +55,8 @@
 		E5698B902C77B54F00C6E710 /* LeaderBoardUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderBoardUser.swift; sourceTree = "<group>"; };
 		E5698B922C77B95D00C6E710 /* Double+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Ext.swift"; sourceTree = "<group>"; };
 		E5698B942C77B97900C6E710 /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
+		E5698B9B2C78F22B00C6E710 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		E5698B9D2C78F73F00C6E710 /* ProfileCustomButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCustomButtonView.swift; sourceTree = "<group>"; };
 		E574EA7C2C4F0273008A6B83 /* FitnessApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FitnessApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E574EA7F2C4F0273008A6B83 /* FitnessAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitnessAppApp.swift; sourceTree = "<group>"; };
 		E574EA812C4F0273008A6B83 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -185,6 +189,39 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		E5698B962C78F1E200C6E710 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				E5698B992C78F1FC00C6E710 /* Model */,
+				E5698B982C78F1F400C6E710 /* ViewModel */,
+				E5698B972C78F1EC00C6E710 /* Views */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		E5698B972C78F1EC00C6E710 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E5698B9B2C78F22B00C6E710 /* ProfileView.swift */,
+				E5698B9D2C78F73F00C6E710 /* ProfileCustomButtonView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E5698B982C78F1F400C6E710 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E5698B992C78F1FC00C6E710 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		E574EA732C4F0273008A6B83 = {
 			isa = PBXGroup;
 			children = (
@@ -204,6 +241,7 @@
 		E574EA7E2C4F0273008A6B83 /* FitnessApp */ = {
 			isa = PBXGroup;
 			children = (
+				E5698B962C78F1E200C6E710 /* Profile */,
 				E591007A2C752B6500767AB6 /* LeaderBoard */,
 				E55A03ED2C6A724700B3D9D9 /* Charts */,
 				E5B9EB2B2C613D5600A6D1E1 /* Utils */,
@@ -322,8 +360,10 @@
 				E5A25DEC2C4F0DF8008D1BF1 /* FitnessTabView.swift in Sources */,
 				E5698B952C77B97900C6E710 /* Date+Ext.swift in Sources */,
 				E52388122C5946CB0038E0D2 /* ActivityModel.swift in Sources */,
+				E5698B9E2C78F73F00C6E710 /* ProfileCustomButtonView.swift in Sources */,
 				E5698B932C77B95D00C6E710 /* Double+Ext.swift in Sources */,
 				E5698B912C77B54F00C6E710 /* LeaderBoardUser.swift in Sources */,
+				E5698B9C2C78F22B00C6E710 /* ProfileView.swift in Sources */,
 				E52388182C5951810038E0D2 /* HealthManager.swift in Sources */,
 				E55A03F42C6A8D6300B3D9D9 /* ChartDataView.swift in Sources */,
 				E5A25DEE2C4F100B008D1BF1 /* HomeView.swift in Sources */,
