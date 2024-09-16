@@ -19,11 +19,11 @@ struct ChartDataView: View {
                 Text("Average")
                     .font(.title3)
                     .fontWeight(.medium)
-                    .foregroundStyle(.black)
+                    .foregroundStyle(.primary)
                     .padding(.vertical)
                 Text("\(average)")
                     .font(.callout)
-                    .foregroundStyle(.black)
+                    .foregroundStyle(.primary)
                     .padding(.bottom)
             }
             
@@ -37,11 +37,11 @@ struct ChartDataView: View {
                 Text("Total")
                     .font(.title3)
                     .fontWeight(.medium)
-                    .foregroundStyle(.black)
+                    .foregroundStyle(.primary)
                     .padding(.vertical)
                 Text("\(total)")
                     .font(.callout)
-                    .foregroundStyle(.black)
+                    .foregroundStyle(.primary)
                     .padding(.bottom)
             }
             

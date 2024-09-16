@@ -35,6 +35,8 @@
 		E5A25DF02C4F1E5B008D1BF1 /* ProgressCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A25DEF2C4F1E5B008D1BF1 /* ProgressCircleView.swift */; };
 		E5B56EFF2C765C920057D807 /* TermsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B56EFE2C765C920057D807 /* TermsView.swift */; };
 		E5B9EB2D2C613D7B00A6D1E1 /* HkWorkoutTypeActivity+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B9EB2C2C613D7B00A6D1E1 /* HkWorkoutTypeActivity+Ext.swift */; };
+		E5C3DAD22C98838100B745DA /* ProfileCustomEditButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C3DAD12C98838100B745DA /* ProfileCustomEditButtonView.swift */; };
+		E5C3DAD42C9888CA00B745DA /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C3DAD32C9888CA00B745DA /* ProfileViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +70,8 @@
 		E5A25DEF2C4F1E5B008D1BF1 /* ProgressCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressCircleView.swift; sourceTree = "<group>"; };
 		E5B56EFE2C765C920057D807 /* TermsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsView.swift; sourceTree = "<group>"; };
 		E5B9EB2C2C613D7B00A6D1E1 /* HkWorkoutTypeActivity+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HkWorkoutTypeActivity+Ext.swift"; sourceTree = "<group>"; };
+		E5C3DAD12C98838100B745DA /* ProfileCustomEditButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCustomEditButtonView.swift; sourceTree = "<group>"; };
+		E5C3DAD32C9888CA00B745DA /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,6 +208,7 @@
 			children = (
 				E5698B9B2C78F22B00C6E710 /* ProfileView.swift */,
 				E5698B9D2C78F73F00C6E710 /* ProfileCustomButtonView.swift */,
+				E5C3DAD12C98838100B745DA /* ProfileCustomEditButtonView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -211,6 +216,7 @@
 		E5698B982C78F1F400C6E710 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				E5C3DAD32C9888CA00B745DA /* ProfileViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -361,7 +367,9 @@
 				E5698B952C77B97900C6E710 /* Date+Ext.swift in Sources */,
 				E52388122C5946CB0038E0D2 /* ActivityModel.swift in Sources */,
 				E5698B9E2C78F73F00C6E710 /* ProfileCustomButtonView.swift in Sources */,
+				E5C3DAD42C9888CA00B745DA /* ProfileViewModel.swift in Sources */,
 				E5698B932C77B95D00C6E710 /* Double+Ext.swift in Sources */,
+				E5C3DAD22C98838100B745DA /* ProfileCustomEditButtonView.swift in Sources */,
 				E5698B912C77B54F00C6E710 /* LeaderBoardUser.swift in Sources */,
 				E5698B9C2C78F22B00C6E710 /* ProfileView.swift in Sources */,
 				E52388182C5951810038E0D2 /* HealthManager.swift in Sources */,

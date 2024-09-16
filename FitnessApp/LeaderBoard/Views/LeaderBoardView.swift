@@ -46,6 +46,7 @@ struct LeaderBoardView: View {
             .frame(maxHeight: .infinity, alignment: .top)
            
             if showTerms {
+                
                 Color(.white)
                 TermsView(showTerms: $showTerms)
             }

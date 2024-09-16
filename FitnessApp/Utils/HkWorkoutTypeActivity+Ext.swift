@@ -217,7 +217,7 @@ extension HKWorkoutActivityType {
            case .danceInspiredTraining:        return .pink
            case .elliptical:                   return .blue
            case .equestrianSports:             return .brown
-           case .fencing:                      return .black
+           case .fencing:                      return .primary
            case .fishing:                      return .blue
            case .functionalStrengthTraining:   return .blue
            case .golf:                         return .green
